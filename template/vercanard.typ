@@ -4,6 +4,8 @@
   #block(inset: (right: 2em), body)
 ]
 
+#let heading-font-size = 20pt
+
 #let resume(
   name: "",
   title: "",
@@ -23,12 +25,12 @@
 
   {
     show heading.where(level: 1): set text(size: 40pt)
-    show heading.where(level: 2): set text(size: 18pt)
-    box(
+    show heading.where(level: 2): set text(size: heading-font-size)
+  box(
       fill: accent-color,
       width: 100%,
       outset: 0pt,
-      inset: (rest: margin, bottom: 0.4 * margin),
+      inset: (rest: margin, top: 0.8 * margin, bottom: 0.8 * margin),
       stack(spacing: 10pt, heading(level: 1, name), heading(level: 2, title)),
     )
   }
@@ -45,7 +47,7 @@
       {
         set block(above: 10pt)
         show heading.where(level: 1): it => context {
-          let h = text(size: 18pt, upper(it))
+          let h = text(size: heading-font-size, it)
           let dim = measure(h)
           stack(dir: ltr, h, place(dy: 7pt, dx: 10pt, horizon + left, line(
             stroke: accent-color,
@@ -55,16 +57,24 @@
         body
       },
     ),
-    block(inset: (bottom: margin, rest: 0.4 * margin), width: 100%, {
-      show heading: it => align(right, upper(it))
-      set list(marker: "")
-      show list: it => {
-        set par(justify: false, linebreaks: "optimized")
-        set text(size: 11pt)
-        align(right, it)
-      }
-      aside
-    }),
+    block(
+      inset: (
+        top: 17pt,
+        // margin
+        rest: 0.3 * margin,
+      ),
+      width: 100%,
+      {
+        show heading: it => text(size: heading-font-size, it)
+        // set list(marker: "")
+        show list: it => {
+          set par(justify: false, linebreaks: "optimized")
+          set text(size: 11pt)
+          align(left, it)
+        }
+        aside
+      },
+    ),
   )
 }
 
