@@ -1,7 +1,7 @@
 #let entry(title, details, body) = [
   #heading(level: 2, title)
   #block(above: 0.7em, text(fill: gray.darken(20%), details))
-  #block(inset: (right: 2em), body)
+  #block(body)
 ]
 
 #let heading-font-size = 20pt
@@ -16,17 +16,18 @@
 ) = {
   set page(margin: 0pt, background: place(top + right, rect(
     fill: accent-color.lighten(80%),
-    width: 33.33333%,
+    width: (1 / 3) * 100%,
     height: 100%,
   )))
   set text(font: "Inria Sans", size: 12pt)
   set block(above: 0pt, below: 0pt)
   set par(justify: true)
+  show link: underline
 
   {
     show heading.where(level: 1): set text(size: 40pt)
     show heading.where(level: 2): set text(size: heading-font-size)
-  box(
+    box(
       fill: accent-color,
       width: 100%,
       outset: 0pt,
@@ -49,18 +50,18 @@
         show heading.where(level: 1): it => context {
           let h = text(size: heading-font-size, it)
           let dim = measure(h)
-          stack(dir: ltr, h, place(dy: 7pt, dx: 10pt, horizon + left, line(
+          stack(dir: ltr, h, place(dy: 8pt, dx: 10pt, horizon + left, line(
             stroke: accent-color,
             length: 100% - dim.width - 10pt,
           )))
         }
-        body
+
+        block(inset: (right: 1em), body)
       },
     ),
     block(
       inset: (
         top: 17pt,
-        // margin
         rest: 0.3 * margin,
       ),
       width: 100%,

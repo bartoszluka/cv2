@@ -21,12 +21,12 @@
 
     = Technologies
 
-    - .NET, C\#
+    - .NET, C\#, F\#
     - Git, GitHub, Azure DevOps
     - REST, APIs
     - SQL, ORMs
     - MongoDB, PostgreSQL
-    - TypeScript, JavaScript, React
+    - TypeScript, JavaScript, React, Angular
     - Docker
     - Linux, command line
   ],
@@ -34,14 +34,13 @@
 
 = Bio
 I'm Bartek and I love programming, problem solving and learning new stuff.
-I would like to apply what I've learned
-Over the course of my career I solved m
+I'm looking for the opportunity to apply my knowledge and gain some more.
 
 = Experience
 
 #entry("Netcompany", [July 2024 -- now])[
   Netcompany is one of the largest Danish IT firms.
-  The project I worked on focused on improving internal wokflows using AI.
+  The project I worked on focused on improving internal wokflows using (generative) AI.
   It included:
   - chat app (similar to ChatGPT) -- using ASP.NET Core + Angular,
   - meeting summary with MS Teams integration,
@@ -62,9 +61,18 @@ Over the course of my career I solved m
 
 = Personal projects
 
-#entry("Throw break app", "2025")[#lorem(20)]
-#entry("Android Dictionary Generator", "2024")[#lorem(20)]
-#entry("Personal server", "2023")[#lorem(20)]
+#entry("C# analyzer", "2025")[
+  #link("https://github.com/bartoszluka/cs-analyzers")
+  This was created to fix the problem with the C\# default warning for unused variables.
+]
+#entry("Android Dictionary Generator", "2024")[
+  This is a re-write (in Rust of course) from multiple Perl + Bash + Python scripts that were needed to create a dictionary,
+  that could be imported into an Android keyboard.
+]
+#entry("Personal server", "2023")[
+  Personal server that I use to run some self-hosted apps.
+  Mainly #link("https://immich.app/")[Immich] and #link("https://immich.app/")[SearXNG]
+]
 #entry("Compiler", "2022")[#lorem(20)]
 
 = Education
