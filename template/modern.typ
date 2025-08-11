@@ -108,7 +108,9 @@
   ]
 }
 /// --- End of Helpers
-/// Resume template that is inspired by the Awesome CV Latex template by posquit0. This template can loosely be considered a port of the original Latex template.
+
+/// Resume template that is inspired by the Awesome CV Latex template by posquit0.
+/// This template can loosely be considered a port of the original Latex template.
 ///
 /// The original template: https://github.com/posquit0/Awesome-CV
 ///
@@ -133,7 +135,6 @@
   header-font: "Roboto",
   paper-size: "a4",
   use-smallcaps: true,
-  show-address-icon: false,
   body,
 ) = {
   if type(accent-color) == str {
@@ -153,18 +154,12 @@
     fallback: true,
   )
 
-  set page(
-    paper: paper-size,
-    margin: (left: 15mm, right: 15mm, top: 10mm, bottom: 10mm),
-    footer: if show-footer [#__resume_footer(
-        author,
-        language,
-        lang_data,
-        date,
-        use-smallcaps: use-smallcaps,
-      )] else [],
-    footer-descent: 0pt,
-  )
+  set page(paper: paper-size, margin: (
+    left: 15mm,
+    right: 15mm,
+    top: 10mm,
+    bottom: 10mm,
+  ))
 
   // set paragraph spacing
   set par(spacing: 0.75em, justify: true)
@@ -199,14 +194,8 @@
       #pad(bottom: 5pt)[
         #block[
           #set text(size: 32pt, style: "normal", font: header-font)
-          #if language == "zh" or language == "ja" [
-            #text(accent-color, weight: "thin")[#author.firstname]#text(
-              weight: "bold",
-            )[#author.lastname]
-          ] else [
-            #text(accent-color, weight: "thin")[#author.firstname]
-            #text(weight: "bold")[#author.lastname]
-          ]
+          #text(accent-color, weight: "thin")[#author.firstname]
+          #text(weight: "bold")[#author.lastname]
         ]
       ]
     ]
@@ -293,9 +282,12 @@
   body
 }
 
-/// The base item for resume entries.
-/// This formats the item for the resume entries. Typically your body would be a bullet list of items. Could be your responsibilities at a company or your academic achievements in an educational background section.
-/// - body (content): The body of the resume entry
+// The base item for resume entries.
+// This formats the item for the resume entries.
+// Typically your body would be a bullet list of items.
+// Could be your responsibilities at a company
+// or your academic achievements in an educational background section.
+// - body (content): The body of the resume entry
 #let resume-item(body) = {
   set text(size: 10pt, style: "normal", weight: "light", fill: color-darknight)
   set block(above: 0.75em, below: 1.25em)
@@ -305,14 +297,17 @@
   ]
 }
 
-/// The base item for resume entries. This formats the item for the resume entries. Typically your body would be a bullet list of items. Could be your responsibilities at a company or your academic achievements in an educational background section.
-/// - title (string): The title of the resume entry
-/// - location (string): The location of the resume entry
-/// - date (string): The date of the resume entry, this can be a range (e.g. "Jan 2020 - Dec 2020")
-/// - description (content): The body of the resume entry
-/// - title-link (string): The link to use for the title (can be none)
-/// - accent-color (color): Override the accent color of the resume-entry
-/// - location-color (color): Override the default color of the "location" for a resume entry.
+// The base item for resume entries.
+// This formats the item for the resume entries.
+// Typically your body would be a bullet list of items.
+// Could be your responsibilities at a company or your academic achievements in an educational background section.
+// - title (string): The title of the resume entry
+// - location (string): The location of the resume entry
+// - date (string): The date of the resume entry, this can be a range (e.g. "Jan 2020 - Dec 2020")
+// - description (content): The body of the resume entry
+// - title-link (string): The link to use for the title (can be none)
+// - accent-color (color): Override the accent color of the resume-entry
+// - location-color (color): Override the default color of the "location" for a resume entry.
 #let resume-entry(
   title: none,
   location: "",
@@ -338,25 +333,8 @@
   ]
 }
 
-/// Show cumulative GPA.
-/// *Example:*
-/// #example(`resume.resume-gpa("3.5", "4.0")`)
-#let resume-gpa(numerator, denominator) = {
-  set text(size: 12pt, style: "italic", weight: "light")
-  text[Cumulative GPA: #box[#strong[#numerator] / #denominator]]
-}
-
-/// Show a certification in the resume.
-/// *Example:*
-/// #example(`resume.resume-certification("AWS Certified Solutions Architect - Associate", "Jan 2020")`)
-/// - certification (content): The certification
-/// - date (content): The date the certification was achieved
-#let resume-certification(certification, date) = {
-  justified-header(certification, date)
-}
-
-/// Styling for resume skill categories.
-/// - category (string): The category
+// Styling for resume skill categories.
+// - category (string): The category
 #let resume-skill-category(category) = {
   align(left)[
     #set text(hyphenate: false)

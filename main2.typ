@@ -18,24 +18,28 @@
   profile-picture: image("ja1.jpeg"),
   date: datetime.today().display(),
   colored-headers: true,
-  show-footer: false,
-  show-address-icon: true,
 )
 
 = Experience
 
 #resume-entry(
-  title: "Senior Software Engineer",
-  location: "Example City, EX",
-  date: "2019 - Present",
-  description: "Example, Inc.",
-  title-link: "https://github.com/DeveloperPaul123",
+  title: "Consultant",
+  // location: "Warsaw",
+  date: [July 2024 -- Now],
+  description: "Netcompany",
+  title-link: "https://netcompany.com",
 )
 
 #resume-item[
-  - #lorem(20)
-  - #lorem(15)
-  - #lorem(25)
+  Netcompany is one of the largest Danish IT firms.
+  The project I worked on focused on improving internal wokflows using (generative) AI.
+  It included:
+  - chat app (similar to ChatGPT) -- using ASP.NET Core + Angular,
+  - meeting summary with MS Teams integration,
+  - document review with inline changes and comments aside,
+  - PR review in Azure DevOps,
+  - IDE plugins (Visual Studio, IntelliJ IDEA, VS Code),
+  - helping internal case management based on SharePoint (checking tickets before creation and helping resolving them).
 ]
 
 #resume-entry(
@@ -86,28 +90,20 @@
 
 = Skills
 
-#resume-skill-item(
-  "Programming Languages",
-  (
-    strong("C++"),
-    strong("Python"),
-    "Rust",
-    "Java",
-    "C#",
-    "JavaScript",
-    "TypeScript",
-  ),
-)
+#resume-skill-item("Programming Languages", (
+  strong("C#"),
+  strong("TypeScript"),
+  "Rust",
+  "C++",
+  "C",
+))
 #resume-skill-item("Spoken Languages", (strong("English"), "Spanish"))
-#resume-skill-item(
-  "Programs",
-  (
-    strong("Excel"),
-    "Word",
-    "Powerpoint",
-    "Visual Studio",
-  ),
-)
+#resume-skill-item("Programs", (
+  strong("Excel"),
+  "Word",
+  "Powerpoint",
+  "Visual Studio",
+))
 // spacing fix, not needed if you use `resume-skill-grid`
 #block(below: 0.65em)
 
